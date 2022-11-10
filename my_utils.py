@@ -49,7 +49,8 @@ def order_data(path_to_data, path_to_folder):
         samples.remove('err_layer.txt')
 
         for sample in samples:
-            err_layer = js[sample]
+            err_layer_min = js[sample + '_min']
+            err_layer_max = js[sample + '_max']
             path_sample = os.path.join(path_to_data,folder,sample)
             images_path_sample = glob.glob(os.path.join(path_sample, '*.png'))
             images_paths.append(images_path_sample)
@@ -58,12 +59,12 @@ def order_data(path_to_data, path_to_folder):
                 img_name = ntpath.basename(image)
                 img_layer = int(img_name[-9:-4])
                 new_name = folder +'_'+ sample +'_'+ img_name
-                if img_layer >= err_layer:
+                if img_layer >= err_layer_max:
                     shutil.copy(image, path_to_folder + '\\1\\' + new_name)
-                else:
+                elif img_layer <= err_layer_min:
                     shutil.copy(image, path_to_folder + '\\0\\' + new_name)
 
-def split_data(path_to_data, path_to_save_test, path_to_save_train, path_to_save_val, test_split_size=0.2, train_split_size=0.6):
+def split_data(path_to_data, path_to_save_train, path_to_save_val, path_to_save_test, test_split_size=0.2, train_split_size=0.6):
 
     if train_split_size + test_split_size > 1:
         print('test_split_size and train split size not compatible, using default values (test_split_size = 0.2, train_split_size = 0.6)')
@@ -71,7 +72,7 @@ def split_data(path_to_data, path_to_save_test, path_to_save_train, path_to_save
         train_split_size=0.6
     
     folders = os.listdir(path_to_data)
-    train_split_size_part = train_split_size/(1-test_split_size)
+    val_split_size = (1-train_split_size-test_split_size)/(1-test_split_size)
 
     if os.path.isdir(path_to_save_test):
         shutil.rmtree(path_to_save_test)
@@ -89,7 +90,7 @@ def split_data(path_to_data, path_to_save_test, path_to_save_train, path_to_save
         images_paths = glob.glob(os.path.join(full_path, '*.png'))
         
         X_train, X_test = train_test_split(images_paths, test_size=test_split_size, random_state=1)
-        X_train, X_val  = train_test_split(X_train, test_size=train_split_size_part, random_state=1)
+        X_train, X_val  = train_test_split(X_train, test_size=val_split_size, random_state=1)
 
         for x in X_train:
             

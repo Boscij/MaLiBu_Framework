@@ -15,7 +15,7 @@ import tensorflow as tf
 
 if __name__=="__main__":
 
-    path_to_data = 'C:\\Users\\Domaschk\\Documents\\01_Malibu\\00_MaLiBu_Framework\\Daten\\Input\\20221104_cleaned'
+    path_to_data = 'C:\\Users\\Domaschk\\Documents\\01_Malibu\\00_MaLiBu_Framework\\Daten\\Input\\20221110_cleaned'
     path_to_sorted_data = 'C:\\Users\\Domaschk\\Documents\\01_Malibu\\00_MaLiBu_Framework\\Daten\\Preprocessed\\0_All'
     path_to_train = 'C:\\Users\\Domaschk\\Documents\\01_Malibu\\00_MaLiBu_Framework\\Daten\\Preprocessed\\1_Train'
     path_to_val = 'C:\\Users\\Domaschk\\Documents\\01_Malibu\\00_MaLiBu_Framework\\Daten\\Preprocessed\\2_Val'
@@ -25,8 +25,8 @@ if __name__=="__main__":
     lr = 0.0001
 
     SORT  = True
-    TRAIN = True
-    TEST  = True
+    TRAIN = False
+    TEST  = False
 
     if SORT:
         order_data(path_to_data, path_to_sorted_data)
