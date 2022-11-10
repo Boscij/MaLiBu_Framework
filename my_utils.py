@@ -53,7 +53,6 @@ def order_data(path_to_data, path_to_folder):
             err_layer_max = js[sample + '_max']
             path_sample = os.path.join(path_to_data,folder,sample)
             images_path_sample = glob.glob(os.path.join(path_sample, '*.png'))
-            images_paths.append(images_path_sample)
 
             for image in images_path_sample:
                 img_name = ntpath.basename(image)

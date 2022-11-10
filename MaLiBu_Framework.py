@@ -24,9 +24,9 @@ if __name__=="__main__":
     epochs = 15
     lr = 0.0001
 
-    SORT  = True
-    TRAIN = False
-    TEST  = False
+    SORT  = False
+    TRAIN = True
+    TEST  = True
 
     if SORT:
         order_data(path_to_data, path_to_sorted_data)
