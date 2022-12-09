@@ -15,17 +15,17 @@ import tensorflow as tf
 
 if __name__=="__main__":
 
-    path_to_data = 'C:\\Users\\Domaschk\\Documents\\01_Malibu\\00_MaLiBu_Framework\\Daten\\Input\\20221110_cleaned'
+    path_to_data = 'C:\\Users\\Domaschk\\Documents\\01_Malibu\\00_MaLiBu_Framework\\Daten\\Input\\20221205_cleaned'
     path_to_sorted_data = 'C:\\Users\\Domaschk\\Documents\\01_Malibu\\00_MaLiBu_Framework\\Daten\\Preprocessed\\0_All'
     path_to_train = 'C:\\Users\\Domaschk\\Documents\\01_Malibu\\00_MaLiBu_Framework\\Daten\\Preprocessed\\1_Train'
     path_to_val = 'C:\\Users\\Domaschk\\Documents\\01_Malibu\\00_MaLiBu_Framework\\Daten\\Preprocessed\\2_Val'
     path_to_test = 'C:\\Users\\Domaschk\\Documents\\01_Malibu\\00_MaLiBu_Framework\\Daten\\Preprocessed\\3_Test'
     batch_size = 64
-    epochs = 15
-    lr = 0.0001
+    epochs = 4
+    lr = 0.00005
 
     SORT  = False
-    TRAIN = True
+    TRAIN = False
     TEST  = True
 
     if SORT:

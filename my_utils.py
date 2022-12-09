@@ -114,11 +114,11 @@ def split_data(path_to_data, path_to_save_train, path_to_save_val, path_to_save_
 
             shutil.copy(x, path_to_folder)   
 
-def create_generators(batch_size, train_data_path, val_data_path, test_data_path):
+def create_generators(batch_size, train_data_path, val_data_path, test_data_path, target_size = (150,150)):
 
     train_preprocessor = ImageDataGenerator(
-        #rescale = 1 / 255.,
-        #rotation_range=10,
+        rescale = 1 / 255.,
+        rotation_range=10,
         width_shift_range=0.1
     )
 
@@ -126,31 +126,35 @@ def create_generators(batch_size, train_data_path, val_data_path, test_data_path
         rescale = 1 / 255.,
     )
 
+    val_preprocessor = ImageDataGenerator(
+        rescale = 1 / 255.,
+    )
+
     train_generator = train_preprocessor.flow_from_directory(
         train_data_path,
         class_mode="categorical",
-        target_size=(60,60),
+        target_size=target_size,
         color_mode='grayscale',
         shuffle=True,
         batch_size=batch_size
     )
 
-    val_generator = test_preprocessor.flow_from_directory(
+    val_generator = val_preprocessor.flow_from_directory(
         val_data_path,
         class_mode="categorical",
-        target_size=(60,60),
+        target_size=target_size,
         color_mode="grayscale",
         shuffle=False,
-        batch_size=batch_size,
+        batch_size=batch_size
     )
 
     test_generator = test_preprocessor.flow_from_directory(
         test_data_path,
         class_mode="categorical",
-        target_size=(60,60),
+        target_size=target_size,
         color_mode="grayscale",
         shuffle=False,
-        batch_size=batch_size,
+        batch_size=batch_size
     )
 
     return train_generator, val_generator, test_generator
