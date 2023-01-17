@@ -20,7 +20,7 @@ if __name__=="__main__":
     path_to_train = 'C:\\Users\\Domaschk\\Documents\\01_Malibu\\00_MaLiBu_Framework\\Daten\\Preprocessed\\1_Train'
     path_to_val = 'C:\\Users\\Domaschk\\Documents\\01_Malibu\\00_MaLiBu_Framework\\Daten\\Preprocessed\\2_Val'
     path_to_test = 'C:\\Users\\Domaschk\\Documents\\01_Malibu\\00_MaLiBu_Framework\\Daten\\Preprocessed\\3_Test'
-    batch_size = 64
+    batch_size = 128
     epochs = 4
     lr = 0.00005
 

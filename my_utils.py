@@ -9,25 +9,6 @@ import ntpath
 from sklearn.model_selection import train_test_split
 from keras.preprocessing.image import ImageDataGenerator
 
-def display_some_examples(path_to_data):
-
-    plt.figure(figsize=(10,10))
-    pics = os.listdir(path_to_data)
-
-    for i in range(25):
-
-        idx = np.random.randint(0, len(pics)-1)
-        full_path = os.path.join(path_to_data, pics[idx])
-        img = mpimg.imread(full_path)
-        plt.xticks([])
-        plt.yticks([])
-        plt.subplot(5,5, i+1)
-        plt.imshow(img, cmap='gray')
-        plt.xticks([])
-        plt.yticks([])
-
-    plt.show()
-
 def order_data(path_to_data, path_to_folder):
 
     folders = os.listdir(path_to_data)

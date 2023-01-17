@@ -21,7 +21,7 @@ def predict_with_model(model, imgpath):
 if __name__=="__main__":
 
     img_path = "C:\\Users\\Domaschk\\Documents\\01_Malibu\\00_MaLiBu_Framework\\Daten\\Preprocessed\\3_Test\\1\\kreisförmige Position_sample 6_layer-00142.png"
-    img_path = "C:\\Users\\Domaschk\\Documents\\01_Malibu\\00_MaLiBu_Framework\\Daten\\Preprocessed\\3_Test\\0\\kreisförmige Position_sample 1_layer-00094.png"
+    #img_path = "C:\\Users\\Domaschk\\Documents\\01_Malibu\\00_MaLiBu_Framework\\Daten\\Preprocessed\\3_Test\\0\\kreisförmige Position_sample 1_layer-00094.png"
     model = tf.keras.models.load_model('./Models')
     prediction = predict_with_model(model, img_path)
 
